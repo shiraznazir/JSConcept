@@ -103,3 +103,34 @@ class Polygon{
 
 const pentagon = new Polygon(1, 2, 3, 4, 5);
 console.log([...pentagon.getSides()]);
+
+// Static methods and properties :-
+// The static keyword defines a static method or property for a class. Static members (properties and 
+// methods) are called without instantiating their class and cannot be called through a class instance.
+// Static methods are often used to create utility functions for an application, whereas static properties
+// are useful for caches, fixed-configuration
+
+class Point{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+    static displayName = "Point";
+    static distance(a, b){
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+
+        return Math.hypot(dx, dy);
+    }
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+
+p1.displayName;
+p1.distance;
+p2.displayName;
+p2.distance;
+console.log(p1.displayName);
+console.log(Point.displayName);
+console.log(Point.distance(p1, p2));
